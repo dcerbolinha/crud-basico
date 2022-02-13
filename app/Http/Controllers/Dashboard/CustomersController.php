@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class CustomersController extends Controller
@@ -32,12 +34,15 @@ class CustomersController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        dd($name);
+        $customer = new Customers();
+        $customer->name = $request->input('name');
+        $customer->save();
+
+        return Redirect::route('customers.index');
     }
 
     /**

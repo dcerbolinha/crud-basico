@@ -18,7 +18,7 @@ export default function Create(props){
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('customers'));
+        post(route('customers.store'));
     }
 
     return (
