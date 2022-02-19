@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customers;
+use Cassandra\Custom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -30,19 +31,18 @@ class CustomersController extends Controller
         return Inertia::render('Customers/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+
     public function store(Request $request)
     {
-        $customer = new Customers();
-        $customer->name = $request->input('name');
-        $customer->save();
+        $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+        ]);
 
-        return Redirect::route('customers.index');
+        $customer = Customers::create([
+            'name' => $request->input('name')
+        ]);
+
+        return Redirect::route('customers.edit', $customer->id)->with('messageSuccess', 'Sucesso');
     }
 
     /**
@@ -60,11 +60,16 @@ class CustomersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit($id)
     {
-        //
+        $customer = Customers::find($id);
+
+        return Inertia::render('Customers/Edit', [
+            'id' => $customer->id,
+            'name' => $customer->name
+        ]);
     }
 
     /**
@@ -76,7 +81,17 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+        ]);
+
+        $customer = Customers::find($id);
+        $customer->update([
+            'name' => $request->input('name')
+        ]);
+
+
+        return Redirect::route('customers.edit', $customer->id)->with('messageSuccess', 'Sucesso');
     }
 
     /**
