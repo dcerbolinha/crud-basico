@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 150);
+            $table->string('url_site', 255)->nullable();
+            $table->string('url_logo', 255)->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->boolean('excluded');
             $table->timestamps();
-
         });
     }
 

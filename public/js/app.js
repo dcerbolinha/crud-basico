@@ -56368,18 +56368,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -56410,7 +56398,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Pages_Auth_ConfirmPassword_js":"33fe370e167ee038","resources_js_Pages_Auth_ForgotPassword_js":"c85e00592e83e3a4","resources_js_Pages_Auth_Login_js":"6b811d7aa6d9c49f","resources_js_Pages_Auth_Register_js":"cf4e61ba44d7a7dd","resources_js_Pages_Auth_ResetPassword_js":"8b4f6ecd315100cb","resources_js_Pages_Auth_VerifyEmail_js":"dc1247def1bdd68e","resources_js_Pages_Customers_Create_js":"f58061e6127f4242","resources_js_Pages_Customers_Edit_js":"82e551200d2b496e","resources_js_Pages_Customers_Index_js":"26ee049baf869c65","resources_js_Pages_Dashboard_js":"3d0b9d3314a17755","resources_js_Pages_Welcome_js":"51a471da7c5ff9db"}[chunkId] + "";
+/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Pages_Auth_ConfirmPassword_js":"33fe370e167ee038","resources_js_Pages_Auth_ForgotPassword_js":"c85e00592e83e3a4","resources_js_Pages_Auth_Login_js":"6b811d7aa6d9c49f","resources_js_Pages_Auth_Register_js":"cf4e61ba44d7a7dd","resources_js_Pages_Auth_ResetPassword_js":"8b4f6ecd315100cb","resources_js_Pages_Auth_VerifyEmail_js":"dc1247def1bdd68e","resources_js_Pages_Customers_Create_js":"52213e634a1a2035","resources_js_Pages_Customers_Edit_js":"d6899523cba1b8fb","resources_js_Pages_Customers_Index_js":"1210be123a017387","resources_js_Pages_Dashboard_js":"3d0b9d3314a17755","resources_js_Pages_Welcome_js":"51a471da7c5ff9db"}[chunkId] + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
